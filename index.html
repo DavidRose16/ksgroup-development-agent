@@ -5131,6 +5131,32 @@ const SEED = {
       properties: [], // mapping of AppFolio property ID → local project ID
       syncMode: 'csv', // 'api' or 'csv'
     },
+    {
+      id: 'yardi',
+      name: 'Yardi',
+      desc: 'Sync rent rolls, tenants, leases, applications, work orders, and property financials from Yardi Voyager or Breeze into DaatView.',
+      connected: false,
+      lastSync: null,
+      filesIndexed: 0,
+      folder: null,
+      logo: null,
+      brandColor: '#005daa',
+      properties: [],
+      syncMode: 'api',
+    },
+    {
+      id: 'entrata',
+      name: 'Entrata',
+      desc: 'Pull leasing, resident, maintenance, and accounting data from Entrata so DaatView can monitor operations across stabilized assets.',
+      connected: false,
+      lastSync: null,
+      filesIndexed: 0,
+      folder: null,
+      logo: null,
+      brandColor: '#f28c28',
+      properties: [],
+      syncMode: 'api',
+    },
   ],
   // In production this is populated by a backend job pulling Gmail + Dropbox
   // and running each item through DaatView AI to extract action + project + urgency.
@@ -5159,6 +5185,16 @@ const SEED = {
 const DATA_VERSION = 43; // v1.21 — Imported Operations System Base: 4 new projects + 70 project-specific tasks
 const stored = JSON.parse(localStorage.getItem('daatview_data') || 'null');
 let DATA = (stored && stored._v === DATA_VERSION) ? stored : { ...JSON.parse(JSON.stringify(SEED)), _v: DATA_VERSION };
+function ensureSeedIntegrations() {
+  if (!DATA.integrations) DATA.integrations = [];
+  const existing = new Set(DATA.integrations.map(i => i.id));
+  (SEED.integrations || []).forEach(seedIntegration => {
+    if (!existing.has(seedIntegration.id)) {
+      DATA.integrations.push(JSON.parse(JSON.stringify(seedIntegration)));
+    }
+  });
+}
+ensureSeedIntegrations();
 function save() { DATA._v = DATA_VERSION; localStorage.setItem('daatview_data', JSON.stringify(DATA)); }
 function reset() { localStorage.removeItem('daatview_data'); location.reload(); }
 
@@ -13804,8 +13840,10 @@ function sendFollowup() {
 
 
 // ============================================================
-// INTEGRATIONS — Dropbox, Gmail, Drive, Calendar, QuickBooks, Procore
+// INTEGRATIONS — Dropbox, Gmail, Drive, Calendar, QuickBooks, Procore, property management systems
 // ============================================================
+const PROPERTY_MANAGEMENT_INTEGRATIONS = ['appfolio', 'yardi', 'entrata'];
+
 function renderIntegrations() {
   const ints = DATA.integrations || [];
   const connected = ints.filter(i => i.connected).length;
@@ -13872,7 +13910,7 @@ function integrationCard(i) {
       ${i.connected ? `
         <div class="integration-meta">
           <div class="text-xs mono ink-dim">Last sync: ${i.lastSync || 'never'}</div>
-          <div class="text-xs mono ink-dim">${i.filesIndexed} ${i.id === 'appfolio' ? 'units' : i.id === 'quickbooks' ? 'bills' : 'items'} indexed</div>
+          <div class="text-xs mono ink-dim">${i.filesIndexed} ${PROPERTY_MANAGEMENT_INTEGRATIONS.includes(i.id) ? 'units' : i.id === 'quickbooks' ? 'bills' : 'items'} indexed</div>
           ${i.folder ? `<div class="text-xs mono ink-dim">Folder: ${i.folder}</div>` : ''}
           ${i.id === 'appfolio' && i.syncMode ? `<div class="text-xs mono ink-dim">Mode: ${i.syncMode === 'api' ? 'Live API sync' : 'CSV upload'}</div>` : ''}
           ${i.id === 'appfolio' && i.properties && i.properties.length ? `<div class="text-xs mono ink-dim">${i.properties.length} propert${i.properties.length>1?'ies':'y'} mapped</div>` : ''}
@@ -13961,6 +13999,8 @@ function openConnectModal(id) {
     gdrive: ['Read files you specifically share with the app', 'See file metadata', 'Cannot delete or modify files'],
     gcal: ['Read your calendar events', 'Create new events when you approve them', 'Cannot delete events'],
     procore: ['Read project, RFI, and submittal data', 'Read vendor and budget data', 'Cannot create or modify entries'],
+    yardi: ['Read property, unit, lease, tenant, and work order data', 'Read rent roll and property financial reports', 'Cannot modify records unless write-back is enabled later'],
+    entrata: ['Read property, resident, lease, application, and maintenance data', 'Read rent roll and accounting exports', 'Cannot modify records unless write-back is enabled later'],
   };
 
   showModal(`
@@ -14014,7 +14054,7 @@ function simulateConnect(id) {
   if (!i) return;
   i.connected = true;
   i.lastSync = 'just now';
-  i.filesIndexed = id === 'dropbox' ? 247 : id === 'gmail' ? 1842 : id === 'gdrive' ? 89 : id === 'gcal' ? 34 : id === 'quickbooks' ? 412 : 67;
+  i.filesIndexed = id === 'dropbox' ? 247 : id === 'gmail' ? 1842 : id === 'gdrive' ? 89 : id === 'gcal' ? 34 : id === 'quickbooks' ? 412 : id === 'yardi' ? 1248 : id === 'entrata' ? 936 : 67;
   i.folder = id === 'dropbox' ? '/DaatView Shared' : id === 'gdrive' ? 'Shared with DaatView' : null;
   save();
   closeModal();
