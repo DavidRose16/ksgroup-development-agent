@@ -3444,8 +3444,10 @@
     margin-bottom: 14px;
   }
   .integration-logo {
-    width: 40px; height: 40px;
+    width: 112px; height: 40px;
     border-radius: 8px;
+    background-color: rgba(255,255,255,.96);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
   }
   .integration-name {
     font-family: 'Fraunces', serif;
@@ -4015,6 +4017,14 @@ const BRAND_HTML = (size = 36, showWord = true, wordSize = 22) => `
   ${showWord ? `<span class="brand" style="font-size:${wordSize}px">DaatView</span>` : ''}
 </div>
 `;
+
+const svgLogo = (svg) => `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+const INTEGRATION_LOGOS = {
+  procore: svgLogo(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 96" role="img" aria-label="Procore logo"><rect width="280" height="96" rx="18" fill="#fff"/><path d="M34 27h34c17 0 28 10 28 25s-11 25-28 25H52v-15h15c8 0 13-4 13-10s-5-10-13-10H50v35H34V27z" fill="#FF5A1F"/><text x="110" y="61" fill="#1F2933" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700">PROCORE</text></svg>`),
+  appfolio: svgLogo(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 96" role="img" aria-label="AppFolio logo"><rect width="280" height="96" rx="18" fill="#fff"/><path d="M38 69l23-43 23 43H69l-8-16-8 16H38zm19-28l4-8 4 8h-8z" fill="#18A0FB"/><text x="96" y="61" fill="#243746" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">AppFolio</text></svg>`),
+  yardi: svgLogo(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 96" role="img" aria-label="Yardi logo"><rect width="280" height="96" rx="18" fill="#fff"/><path d="M34 26h18l19 30 19-30h18L79 70v16H63V70L34 26z" fill="#005DAA"/><text x="118" y="62" fill="#005DAA" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700">Yardi</text></svg>`),
+  entrata: svgLogo(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 96" role="img" aria-label="Entrata logo"><rect width="280" height="96" rx="18" fill="#fff"/><path d="M35 27h55v13H51v11h34v12H51v13h40v13H35V27z" fill="#E42127"/><text x="108" y="63" fill="#E42127" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="700">entrata</text></svg>`),
+};
 
 // ============================================================
 // DATA — seeded from DaatView's actual project list
@@ -5114,7 +5124,7 @@ const SEED = {
       lastSync: null,
       filesIndexed: 0,
       folder: null,
-      logo: null,
+      logo: INTEGRATION_LOGOS.procore,
       brandColor: '#f47e42',
     },
     {
@@ -5125,7 +5135,7 @@ const SEED = {
       lastSync: null,
       filesIndexed: 0,
       folder: null,
-      logo: null,
+      logo: INTEGRATION_LOGOS.appfolio,
       brandColor: '#3FA9F5',
       // AppFolio-specific config
       properties: [], // mapping of AppFolio property ID → local project ID
@@ -5139,7 +5149,7 @@ const SEED = {
       lastSync: null,
       filesIndexed: 0,
       folder: null,
-      logo: null,
+      logo: INTEGRATION_LOGOS.yardi,
       brandColor: '#005daa',
       properties: [],
       syncMode: 'api',
@@ -5152,7 +5162,7 @@ const SEED = {
       lastSync: null,
       filesIndexed: 0,
       folder: null,
-      logo: null,
+      logo: INTEGRATION_LOGOS.entrata,
       brandColor: '#f28c28',
       properties: [],
       syncMode: 'api',
@@ -5191,6 +5201,12 @@ function ensureSeedIntegrations() {
   (SEED.integrations || []).forEach(seedIntegration => {
     if (!existing.has(seedIntegration.id)) {
       DATA.integrations.push(JSON.parse(JSON.stringify(seedIntegration)));
+    } else {
+      const current = DATA.integrations.find(i => i.id === seedIntegration.id);
+      current.name = seedIntegration.name;
+      current.desc = seedIntegration.desc;
+      current.logo = seedIntegration.logo;
+      current.brandColor = seedIntegration.brandColor;
     }
   });
 }
