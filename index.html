@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>KS Group — Project Operations</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z' fill='%233FAA52'/><path d='M38 60 L62 60 L62 90 L52 90 L52 78 L46 84 L46 90 L38 90 Z M52 60 L52 72 L46 78 L46 60 Z' fill='%231F7A32'/></svg>">
+<title>DaatView — Real Estate AI Operating System</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230A0A0A'/><path d='M28 22h22c18 0 30 11 30 28S68 78 50 78H28V22zm18 15v26h4c9 0 15-5 15-13s-6-13-15-13h-4z' fill='%2300F5FF'/><circle cx='74' cy='26' r='5' fill='%2367E8F9'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0e1014;
@@ -62,7 +62,7 @@
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
   }
-  /* Brand logo — matches the green-house "K" mark */
+  /* Brand logo — matches the DaatView node mark */
   .brand-logo {
     display: inline-flex;
     align-items: center;
@@ -3511,6 +3511,327 @@
   .text-sm { font-size: 12px; }
   .text-xs { font-size: 11px; }
 
+  /* ==================== DAATVIEW AI SYSTEM THEME ==================== */
+  :root {
+    --bg: #0A0A0A;
+    --surface: rgba(17,17,17,.86);
+    --surface-2: rgba(23,25,29,.88);
+    --surface-3: rgba(35,40,48,.88);
+    --line: rgba(103,232,249,.14);
+    --line-soft: rgba(255,255,255,.07);
+    --ink: #f8fafc;
+    --ink-dim: #a1a8b3;
+    --ink-faint: #626b78;
+    --accent: #00F5FF;
+    --accent-hot: #67E8F9;
+    --green: #54f4a8;
+    --amber: #f7c948;
+    --red: #fb7185;
+    --blue: #22D3EE;
+    --radius: 8px;
+  }
+  body {
+    background:
+      radial-gradient(900px 520px at 76% -10%, rgba(0,245,255,.12), transparent 58%),
+      radial-gradient(600px 360px at 18% 110%, rgba(34,211,238,.08), transparent 55%),
+      linear-gradient(180deg, #0A0A0A 0%, #050505 100%);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,.75), transparent 70%);
+    z-index: -1;
+  }
+  .brand, .login-title, .page-title, .card-title, .project-name, .kpi-value,
+  .simple-project-name, .big-greeting-title, .modal-title, .stage-name,
+  .day-card-count, .integration-name {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    letter-spacing: 0;
+  }
+  .brand { font-weight: 750; }
+  .brand-logo { align-items: center; }
+  .brand-mark {
+    position: relative;
+    border-radius: 12px;
+    background:
+      radial-gradient(circle at 72% 24%, rgba(255,255,255,.95) 0 4px, transparent 5px),
+      linear-gradient(135deg, rgba(0,245,255,.95), rgba(34,211,238,.18));
+    box-shadow: 0 0 22px rgba(0,245,255,.28), inset 0 0 0 1px rgba(255,255,255,.18);
+  }
+  .brand-mark svg { display: none; }
+  .brand-mark::before {
+    content: 'D';
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #061115;
+    font-weight: 800;
+    font-size: 58%;
+  }
+  .brand-sub, .crumb, .kpi-label, .nav-section, .project-stat-label,
+  .ai-search-label, .ai-answer-label, .day-card-label {
+    letter-spacing: .16em;
+  }
+  .login-card, .card, .kpi, .project-card, .day-card, .modal, .ai-search-hero,
+  .agent-banner, .stale-alert-card, .stage-cell, .stage-pill {
+    background: linear-gradient(180deg, rgba(20,22,27,.82), rgba(12,13,16,.9));
+    border-color: rgba(103,232,249,.13);
+    box-shadow: 0 18px 60px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.04);
+    backdrop-filter: blur(18px);
+  }
+  .sidebar {
+    background: rgba(10,10,10,.9);
+    border-right-color: rgba(103,232,249,.12);
+    backdrop-filter: blur(18px);
+  }
+  .topbar {
+    background: rgba(10,10,10,.72);
+    border-bottom-color: rgba(103,232,249,.12);
+    backdrop-filter: blur(22px);
+  }
+  .main { background: linear-gradient(180deg, rgba(255,255,255,.015), transparent 280px); }
+  .btn, .topbar-bell, .filter-tab, .ai-chip {
+    border-radius: 999px;
+  }
+  .btn-primary, .filter-tab.active {
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    color: #031316;
+    border-color: rgba(103,232,249,.7);
+    box-shadow: 0 0 28px rgba(0,245,255,.24);
+  }
+  .btn:hover, .topbar-bell:hover, .filter-tab:hover, .ai-chip:hover {
+    border-color: rgba(0,245,255,.7);
+    box-shadow: 0 0 22px rgba(0,245,255,.14);
+  }
+  .search, .field input, .field select, .field textarea, .ai-search-input {
+    background-color: rgba(5,7,9,.75);
+    border-color: rgba(103,232,249,.16);
+    border-radius: 999px;
+  }
+  .field textarea { border-radius: 12px; }
+  .page { padding-right: 436px; }
+  .page-title {
+    font-weight: 750;
+    font-size: 38px;
+  }
+  .page-title em, .big-greeting-title em {
+    color: var(--accent);
+    font-style: normal;
+    text-shadow: 0 0 24px rgba(0,245,255,.28);
+  }
+  .project-card {
+    border-radius: 14px;
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+  }
+  .project-card:hover {
+    border-color: rgba(0,245,255,.65);
+    box-shadow: 0 28px 70px rgba(0,0,0,.45), 0 0 44px rgba(0,245,255,.14);
+  }
+  .project-img::after {
+    background: linear-gradient(180deg, rgba(10,10,10,.06) 20%, rgba(10,10,10,.92));
+  }
+  .project-stage-tag, .status, .my-pill, .alert-pill {
+    border-radius: 999px;
+  }
+  .project-progress-fill, .relevance-bar-fill, .payment-bar-fill,
+  .stage-cell.active::before, .nav-item.active::before {
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    box-shadow: 0 0 16px rgba(0,245,255,.4);
+  }
+  .agent-banner, .ai-answer, .ai-search-hero {
+    background: linear-gradient(135deg, rgba(0,245,255,.12), rgba(103,232,249,.025));
+    border-color: rgba(0,245,255,.28);
+  }
+  .agent-pulse, .ai-pulse {
+    box-shadow: 0 0 0 0 rgba(0,245,255,.55);
+    animation: daatPulse 2s infinite;
+  }
+  @keyframes daatPulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,245,255,.55); }
+    70% { box-shadow: 0 0 0 10px rgba(0,245,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,245,255,0); }
+  }
+  .ai-assistant {
+    position: fixed;
+    top: 78px;
+    right: 22px;
+    bottom: 22px;
+    width: 390px;
+    z-index: 24;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(17,17,17,.88), rgba(6,8,10,.94));
+    border: 1px solid rgba(0,245,255,.22);
+    border-radius: 18px;
+    box-shadow: 0 26px 90px rgba(0,0,0,.58), 0 0 60px rgba(0,245,255,.12);
+    backdrop-filter: blur(24px);
+    overflow: hidden;
+  }
+  #app:not(.active) + .ai-assistant { display: none; }
+  .ai-assistant.collapsed {
+    width: auto;
+    height: auto;
+    top: auto;
+    left: auto;
+    bottom: 22px;
+  }
+  .ai-assistant.collapsed .ai-panel-body,
+  .ai-assistant.collapsed .ai-panel-input,
+  .ai-assistant.collapsed .ai-panel-metrics {
+    display: none;
+  }
+  .ai-panel-head {
+    padding: 16px;
+    border-bottom: 1px solid rgba(103,232,249,.12);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ai-orb {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    color: #061115;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    box-shadow: 0 0 28px rgba(0,245,255,.35);
+  }
+  .ai-panel-title { font-weight: 700; }
+  .ai-panel-sub { color: var(--ink-faint); font-size: 11px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .12em; }
+  .ai-panel-toggle {
+    margin-left: auto;
+    background: rgba(255,255,255,.04);
+    color: var(--ink-dim);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 999px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .ai-panel-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(103,232,249,.12);
+  }
+  .ai-panel-metric {
+    background: rgba(10,10,10,.62);
+    padding: 12px;
+  }
+  .ai-panel-metric strong { display: block; color: var(--accent); font-size: 17px; line-height: 1; }
+  .ai-panel-metric span { color: var(--ink-faint); font-size: 10px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .1em; }
+  .ai-panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ai-message {
+    max-width: 92%;
+    padding: 12px 13px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .ai-message.bot {
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .ai-message.user {
+    align-self: flex-end;
+    background: rgba(0,245,255,.13);
+    border: 1px solid rgba(0,245,255,.28);
+    color: var(--ink);
+  }
+  .ai-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .ai-quick button {
+    background: rgba(0,245,255,.08);
+    border: 1px solid rgba(0,245,255,.18);
+    color: var(--accent-hot);
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .ai-panel-input {
+    border-top: 1px solid rgba(103,232,249,.12);
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+  }
+  .ai-panel-input input {
+    flex: 1;
+    min-width: 0;
+    background: rgba(5,7,9,.75);
+    border: 1px solid rgba(103,232,249,.16);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-family: inherit;
+  }
+  .ai-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-hot);
+    background: rgba(0,245,255,.11);
+    border: 1px solid rgba(0,245,255,.28);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+  .ai-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .ai-insight-card {
+    background: linear-gradient(180deg, rgba(0,245,255,.075), rgba(255,255,255,.025));
+    border: 1px solid rgba(0,245,255,.18);
+    border-radius: 14px;
+    padding: 16px;
+  }
+  .ai-insight-label {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    margin-bottom: 8px;
+  }
+  .ai-insight-title { font-weight: 700; margin-bottom: 7px; }
+  .ai-insight-copy { color: var(--ink-dim); font-size: 12px; line-height: 1.55; }
+  @media (max-width: 1180px) {
+    .page { padding-right: 32px; }
+    .ai-assistant {
+      top: auto;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      width: auto;
+      height: 360px;
+    }
+  }
+
   /* mobile */
   @media (max-width: 900px) {
     #app.active { grid-template-columns: 1fr; }
@@ -3522,6 +3843,8 @@
     .search { width: 140px; }
     .budget-edit-grid { grid-template-columns: 1fr; }
     .budget-header { flex-direction: column; align-items: stretch; }
+    .ai-insights-grid { grid-template-columns: 1fr; }
+    .ai-assistant { height: 320px; }
   }
 </style>
 </head>
@@ -3532,21 +3855,21 @@
   <div class="login-card">
     <div class="brand-logo" style="gap:14px;justify-content:center;margin-bottom:8px">
       <div class="brand-mark" style="width:48px;height:48px">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="KS Group">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="DaatView">
           <path d="M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z" fill="#3FAA52"/>
           <path d="M38 60 L62 60 L62 90 L52 90 L52 78 L46 84 L46 90 L38 90 Z M52 60 L52 72 L46 78 L46 60 Z" fill="#1F7A32"/>
           <path d="M62 60 L62 90 L58 90 L58 60 Z" fill="#5BC36A" opacity="0.6"/>
         </svg>
       </div>
-      <span class="brand" style="font-size:30px">KS Group</span>
+      <span class="brand" style="font-size:30px">DaatView</span>
     </div>
-    <div class="brand-sub" style="text-align:center">Project Operations</div>
+    <div class="brand-sub" style="text-align:center">AI Operating System</div>
     <div class="login-title">Sign in</div>
     <div class="login-desc">Enter your email and password to access your team workspace.</div>
 
     <div class="field">
       <label>Email</label>
-      <input type="email" id="loginEmail" placeholder="you@ksgroup.biz" autocomplete="email">
+      <input type="email" id="loginEmail" placeholder="you@daatview.ai" autocomplete="email">
     </div>
     <div class="field">
       <label>Password</label>
@@ -3587,15 +3910,15 @@
     <div class="sidebar-head">
       <div class="brand-logo">
         <div class="brand-mark" style="width:32px;height:32px">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="KS Group">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="DaatView">
             <path d="M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z" fill="#3FAA52"/>
             <path d="M38 60 L62 60 L62 90 L52 90 L52 78 L46 84 L46 90 L38 90 Z M52 60 L52 72 L46 78 L46 60 Z" fill="#1F7A32"/>
             <path d="M62 60 L62 90 L58 90 L58 60 Z" fill="#5BC36A" opacity="0.6"/>
           </svg>
         </div>
-        <span class="brand" style="font-size:18px">KS Group</span>
+        <span class="brand" style="font-size:18px">DaatView</span>
       </div>
-      <div class="brand-sub" style="margin-top:8px;margin-bottom:0">Project Ops</div>
+      <div class="brand-sub" style="margin-top:8px;margin-bottom:0">AI OS</div>
     </div>
     <nav class="nav" id="dynamicNav">
       <!-- Populated by renderSidebar() — supports drag-and-drop reorder per user -->
@@ -3613,12 +3936,13 @@
   <main class="main">
     <div class="topbar">
       <div class="crumb">
-        <span>KS Group</span>
+        <span>DaatView</span>
         <span class="sep">/</span>
         <span class="current" id="crumb">Dashboard</span>
       </div>
       <div class="topbar-actions">
-        <input type="text" class="search" placeholder="Search projects, tasks, subs…" id="globalSearch">
+        <input type="text" class="search" placeholder="Search assets, tasks, vendors..." id="globalSearch">
+        <button class="btn btn-primary btn-sm" onclick="openDaatAI()">Ask DaatView AI</button>
         <button class="topbar-bell" onclick="openHelp()" title="About this prototype">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         </button>
@@ -3633,6 +3957,36 @@
   </main>
 </div>
 
+<!-- ==================== DAATVIEW AI ASSISTANT ==================== -->
+<aside class="ai-assistant" id="daatAiAssistant" aria-label="DaatView AI Assistant">
+  <div class="ai-panel-head">
+    <div class="ai-orb">D</div>
+    <div>
+      <div class="ai-panel-title">DaatView AI Assistant</div>
+      <div class="ai-panel-sub">Context aware operator</div>
+    </div>
+    <button class="ai-panel-toggle" onclick="toggleDaatAI()" title="Collapse assistant">–</button>
+  </div>
+  <div class="ai-panel-metrics">
+    <div class="ai-panel-metric"><strong id="aiMetricRisk">12</strong><span>Risks</span></div>
+    <div class="ai-panel-metric"><strong id="aiMetricOpp">94</strong><span>Top Score</span></div>
+    <div class="ai-panel-metric"><strong id="aiMetricFlow">18</strong><span>Flows</span></div>
+  </div>
+  <div class="ai-panel-body" id="daatAiMessages">
+    <div class="ai-message bot">I am watching tasks, payments, documents, permits, COIs, and leasing signals across the portfolio. Ask about risk, upside, blockers, or next actions.</div>
+    <div class="ai-quick">
+      <button onclick="askDaatAI('What needs attention today?')">Today</button>
+      <button onclick="askDaatAI('Show top portfolio risks')">Top risks</button>
+      <button onclick="askDaatAI('Which assets have the best opportunity score?')">Opportunity</button>
+      <button onclick="askDaatAI('Recommend workflows to automate')">Automations</button>
+    </div>
+  </div>
+  <div class="ai-panel-input">
+    <input id="daatAiInput" placeholder="Ask about any property, invoice, task, or file..." onkeydown="handleDaatAIKey(event)">
+    <button class="btn btn-primary btn-sm" onclick="submitDaatAI()">Ask</button>
+  </div>
+</aside>
+
 <!-- ==================== MODAL ==================== -->
 <div class="modal-backdrop" id="modalBackdrop">
   <div class="modal" id="modal"></div>
@@ -3640,10 +3994,10 @@
 
 <script>
 // ============================================================
-// BRAND — KS Group logo + wordmark (matches the green-house "K" mark)
+// BRAND — DaatView logo + wordmark (matches the DaatView node mark)
 // ============================================================
 const BRAND_LOGO_SVG = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="KS Group">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="DaatView">
   <!-- House body, lighter green -->
   <path d="M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z"
         fill="#3FAA52"/>
@@ -3658,12 +4012,12 @@ const BRAND_LOGO_SVG = `
 const BRAND_HTML = (size = 36, showWord = true, wordSize = 22) => `
 <div class="brand-logo" style="gap:${Math.round(size*0.28)}px">
   <div class="brand-mark" style="width:${size}px;height:${size}px">${BRAND_LOGO_SVG}</div>
-  ${showWord ? `<span class="brand" style="font-size:${wordSize}px">KS Group</span>` : ''}
+  ${showWord ? `<span class="brand" style="font-size:${wordSize}px">DaatView</span>` : ''}
 </div>
 `;
 
 // ============================================================
-// DATA — seeded from KS Group's actual project list
+// DATA — seeded from DaatView's actual project list
 // ============================================================
 const SEED = {
   user: null, // No default user — login is required
@@ -3920,7 +4274,7 @@ const SEED = {
   ],
 
   // Note: in production, summary / tags / entities / contentSnippet are auto-generated
-  // by Claude on upload. The "indexed" flag means the AI has processed the doc.
+  // by DaatView AI on upload. The "indexed" flag means the AI has processed the doc.
   // Some docs below have ugly real-world filenames on purpose to demonstrate
   // semantic search finding them by content, not name.
   docs: [
@@ -3931,10 +4285,10 @@ const SEED = {
       contentSnippet:'…revised setbacks on north property line per ZR 23-664, parking count reduced to 86 spaces from 94, tower height remains 14 stories…' },
 
     { id:'d2', name:'IMG_2847.pdf', type:'pdf', project:'astoria', size:'2.1 MB', uploaded:'2026-04-18', cat:'Contracts', indexed:true,
-      summary:'Executed mechanical/HVAC subcontract between KS Group and Apex HVAC Systems for Astoria Cove. Contract value $3.2M, scope includes chilled water, VRF, and ventilation.',
+      summary:'Executed mechanical/HVAC subcontract between DaatView and Apex HVAC Systems for Astoria Cove. Contract value $3.2M, scope includes chilled water, VRF, and ventilation.',
       tags:['contract','executed','hvac','mechanical','subcontract'],
       entities:['Apex HVAC Systems','Mike Reilly','Astoria Cove','$3,240,000'],
-      contentSnippet:'…this Subcontract Agreement is entered into between KS Group LLC ("Owner") and Apex HVAC Systems Inc. ("Subcontractor") for mechanical work at Astoria Cove project, total contract value $3,240,000…' },
+      contentSnippet:'…this Subcontract Agreement is entered into between DaatView LLC ("Owner") and Apex HVAC Systems Inc. ("Subcontractor") for mechanical work at Astoria Cove project, total contract value $3,240,000…' },
 
     { id:'d3', name:'Astoria_Pro_Forma_Q2_2026.xlsx', type:'xls', project:'astoria', size:'342 KB', uploaded:'2026-04-15', cat:'Financials', indexed:true,
       summary:'Q2 2026 pro forma showing projected NOI of $4.8M annually, stabilized cap rate 5.2%, total project costs $78.5M with 32% equity contribution.',
@@ -4049,7 +4403,7 @@ const SEED = {
         {date:'2026-03-30', amount:9533},
       ], notes:'' },
     { id:'p_pulaski_15', project:'pulaski', category:'soft', costType:'Developer Fee',
-      vendor:'KS Group', contact:'KS Group', totalCost:80000,
+      vendor:'DaatView', contact:'DaatView', totalCost:80000,
       payments:[
         {date:'2026-02-27', amount:60000},
         {date:'2026-03-02', amount:10000},
@@ -4250,7 +4604,7 @@ const SEED = {
     { project:'river',     month:'2026-04', inquiries:11, showings:6, applications:3 },
   ],
 
-  // KS Group internal team — all members have equal full access.
+  // DaatView internal team — all members have equal full access.
 
   // ====================================================================
   // DEVELOPMENT WORKFLOW — stages + task templates + per-project state
@@ -4651,17 +5005,17 @@ const SEED = {
     { id:'coi9', subId:'s9', subName:'NJ Title & Escrow',     coverage:'$5M E&O',                        expiresDate:'2026-06-30', status:'active',   onFile:true,  policyNum:'EO-NJT-2025-0103' },
   ],
 
-  // KS Group internal team — all members have equal full access.
+  // DaatView internal team — all members have equal full access.
   // Subs are NOT in this list and never get to sign in. They only receive
   // follow-up emails sent FROM the platform on the team's behalf.
   team: [
-    { id:'u_ben',    name:'Ben Rieder',      email:'ben@ksgroup.biz',     joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
-    { id:'u_zevi',   name:'Zevi Kotkes',     email:'zevi@ksgroup.biz',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
+    { id:'u_ben',    name:'Ben Rieder',      email:'ben@daatview.ai',     joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
+    { id:'u_zevi',   name:'Zevi Kotkes',     email:'zevi@daatview.ai',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
     { id:'u_yehuda', name:'Yehuda Kotkes',   email:'yehuda@ksgroup.mobi', joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
-    { id:'u_yitz',   name:'Yitz Kaufman',    email:'yitz@ksgroup.biz',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
-    { id:'u_daniel', name:'Daniel Epstein',  email:'daniel@ksgroup.biz',  joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
-    { id:'u_matt',   name:'Matthew Dreifus', email:'matt@ksgroup.biz',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
-    { id:'u_yoni',   name:'Yoni Hadar',      email:'yoni@ksgroup.biz',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
+    { id:'u_yitz',   name:'Yitz Kaufman',    email:'yitz@daatview.ai',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
+    { id:'u_daniel', name:'Daniel Epstein',  email:'daniel@daatview.ai',  joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
+    { id:'u_matt',   name:'Matthew Dreifus', email:'matt@daatview.ai',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
+    { id:'u_yoni',   name:'Yoni Hadar',      email:'yoni@daatview.ai',    joined:'2026-04-28', password:'temp1234', mustChangePassword:true },
   ],
 
   // Follow-up emails sent to subs. AI watches inbox for replies and updates status.
@@ -4779,7 +5133,7 @@ const SEED = {
     },
   ],
   // In production this is populated by a backend job pulling Gmail + Dropbox
-  // and running each item through Claude to extract action + project + urgency.
+  // and running each item through DaatView AI to extract action + project + urgency.
   agent: [
     { id:'a1', source:'gmail', from:'mike.reilly@apexhvac.com', subject:'Re: Astoria mechanical RFI #142 — needs your call',
       summary:'Apex is asking for an answer on the chilled water riser routing change before Friday or it will delay shop drawings 2 weeks.',
@@ -4803,10 +5157,10 @@ const SEED = {
 
 // load from localStorage if present, else seed
 const DATA_VERSION = 43; // v1.21 — Imported Operations System Base: 4 new projects + 70 project-specific tasks
-const stored = JSON.parse(localStorage.getItem('ksgroup_data') || 'null');
+const stored = JSON.parse(localStorage.getItem('daatview_data') || 'null');
 let DATA = (stored && stored._v === DATA_VERSION) ? stored : { ...JSON.parse(JSON.stringify(SEED)), _v: DATA_VERSION };
-function save() { DATA._v = DATA_VERSION; localStorage.setItem('ksgroup_data', JSON.stringify(DATA)); }
-function reset() { localStorage.removeItem('ksgroup_data'); location.reload(); }
+function save() { DATA._v = DATA_VERSION; localStorage.setItem('daatview_data', JSON.stringify(DATA)); }
+function reset() { localStorage.removeItem('daatview_data'); location.reload(); }
 
 // ============================================================
 // AUTO-SEED PLAYBOOK ON EVERY PROJECT
@@ -4970,7 +5324,7 @@ function showForgotPassword() {
       </div>
       <div class="field">
         <label>Email</label>
-        <input type="email" id="resetEmail" placeholder="you@ksgroup.biz">
+        <input type="email" id="resetEmail" placeholder="you@daatview.ai">
       </div>
       <div style="padding:12px 14px;background:rgba(217,164,65,.08);border:1px solid rgba(217,164,65,.25);border-radius:4px;font-size:12px;color:var(--ink-dim);line-height:1.55;margin-top:12px">
         <strong style="color:var(--amber)">⚠ Demo:</strong> No actual email is sent. In production (Lovable + Supabase), Supabase Auth handles the reset email automatically — sends a magic link to the user's inbox, they click it, set a new password.
@@ -6376,6 +6730,54 @@ const projById = id => DATA.projects.find(p => p.id === id);
 const projName = id => projById(id)?.name || id;
 const stageLabel = { acquisition:'Acquisition', diligence:'Due Diligence', planning:'In Planning', approved:'Approved', construction:'Construction', completed:'Completed' };
 
+function aiOpportunityScore(p) {
+  const stageBoost = { acquisition: 12, diligence: 18, planning: 16, approved: 20, construction: 14, completed: 8 };
+  const unitBoost = Math.min(24, Math.round((p.units || 0) / 120));
+  const progressBoost = Math.round((p.progress || 0) / 5);
+  const alertDrag = (p.alerts || 0) * 4;
+  return Math.max(52, Math.min(98, 62 + (stageBoost[p.stage] || 10) + unitBoost + progressBoost - alertDrag));
+}
+
+function aiRiskCount(projectId) {
+  const projects = projectId ? DATA.projects.filter(p => p.id === projectId) : DATA.projects;
+  return projects.reduce((sum, p) => {
+    const stale = typeof getStaleTasks === 'function' ? getStaleTasks(p.id).length : 0;
+    const invoices = (DATA.invoiceQueue || []).filter(i => i.project === p.id && i.status === 'pending').length;
+    const coi = (DATA.certificatesOfInsurance || []).filter(c => {
+      const sub = (DATA.subs || []).find(s => s.id === c.subId);
+      return sub && sub.projects.includes(p.id) && daysUntil(c.expiresDate) <= 30;
+    }).length;
+    return sum + (p.alerts || 0) + stale + invoices + coi;
+  }, 0);
+}
+
+function renderAIOverview(projectId) {
+  const projects = projectId ? DATA.projects.filter(p => p.id === projectId) : DATA.projects;
+  const top = projects.slice().sort((a,b) => aiOpportunityScore(b) - aiOpportunityScore(a))[0];
+  const overdue = (DATA.tasks || []).filter(t => (!projectId || t.project === projectId) && t.status !== 'done' && daysUntil(t.due) < 0).length;
+  const docsIndexed = (DATA.docs || []).filter(d => (!projectId || d.project === projectId) && d.indexed).length;
+  const riskCount = aiRiskCount(projectId);
+  return `
+    <div class="ai-insights-grid">
+      <div class="ai-insight-card">
+        <div class="ai-insight-label">AI Insights</div>
+        <div class="ai-insight-title">${riskCount} active risk signal${riskCount===1?'':'s'}</div>
+        <div class="ai-insight-copy">DaatView is correlating stale tasks, invoice approvals, COI expirations, alerts, and project velocity.</div>
+      </div>
+      <div class="ai-insight-card">
+        <div class="ai-insight-label">Smart Recommendations</div>
+        <div class="ai-insight-title">${top ? `${top.name}: ${aiOpportunityScore(top)}` : 'Portfolio scan ready'}</div>
+        <div class="ai-insight-copy">Highest current opportunity score based on scale, stage, progress, and open risk load.</div>
+      </div>
+      <div class="ai-insight-card">
+        <div class="ai-insight-label">Automated Workflows</div>
+        <div class="ai-insight-title">${Math.max(6, docsIndexed + overdue)} suggested automations</div>
+        <div class="ai-insight-copy">Route documents, draft follow-ups, prepare lender packages, and trigger compliance reminders.</div>
+      </div>
+    </div>
+  `;
+}
+
 function daysUntil(d) {
   if (!d) return null;
   const ms = new Date(d) - new Date();
@@ -6421,6 +6823,7 @@ function render(view, payload) {
   // Sidebar handles active state, badge counts, and visibility internally
   renderSidebar();
   updateBellDot();
+  updateDaatAIMetrics();
 }
 
 // ============================================================
@@ -6489,6 +6892,8 @@ function renderDashboard() {
               : `${myToday.length} item${myToday.length>1?'s':''} due today.`}
         </div>
       </div>
+
+      ${renderAIOverview()}
 
       ${(() => {
         // GLOBAL STALE TASKS ALERT — across all projects
@@ -6753,11 +7158,12 @@ function renderProjects() {
     <div class="page">
       <div class="page-head">
         <div>
-          <div class="page-title">Project <em>Portfolio</em></div>
-          <div class="page-sub">${DATA.projects.length} projects · ${DATA.projects.filter(p=>p.stage!=='completed').length} active</div>
+          <div class="page-title">AI Asset <em>Portfolio</em></div>
+          <div class="page-sub">${DATA.projects.length} assets · ${DATA.projects.filter(p=>p.stage!=='completed').length} active · ranked by opportunity, risk, and execution velocity</div>
         </div>
         <button class="btn btn-primary btn-sm" onclick="openNewProjectModal()">+ New Project</button>
       </div>
+      ${renderAIOverview()}
       <div class="project-grid">
         ${DATA.projects.map(p => projectCard(p)).join('')}
       </div>
@@ -6785,6 +7191,7 @@ function projectCard(p) {
     <div class="project-card" data-proj="${p.id}">
       <div class="project-img" style="background-image:url('${p.img}')">
         <div class="project-stage-tag ${p.stage}">${stageLabel[p.stage]}</div>
+        <div class="ai-score" style="position:absolute;left:12px;bottom:12px;z-index:3">AI Opportunity Score: ${aiOpportunityScore(p)}</div>
         ${p.alerts ? `<div class="project-alerts"><div class="alert-pill ${p.alerts > 1 ? '' : 'warn'}">${p.alerts}</div></div>` : ''}
       </div>
       <div class="project-body">
@@ -6865,10 +7272,12 @@ function renderProjectDetail(id) {
         }).filter(Boolean).join('')}
       </div>
 
+      ${renderAIOverview(p.id)}
+
       <div class="kpi-row">
         <div class="kpi"><div class="kpi-label">Units</div><div class="kpi-value">${p.units > 0 ? p.units.toLocaleString() : 'TBD'}</div></div>
         <div class="kpi"><div class="kpi-label">Address</div><div class="kpi-value" style="font-size:18px">${p.address}</div></div>
-        <div class="kpi"><div class="kpi-label">Project Manager</div><div class="kpi-value" style="font-size:22px">${p.pm ? (teamUserName(p.pm) || p.pm) : 'TBD'}</div></div>
+        <div class="kpi"><div class="kpi-label">AI Opportunity</div><div class="kpi-value" style="font-size:22px">${aiOpportunityScore(p)}<span class="unit">/100</span></div></div>
         <div class="kpi"><div class="kpi-label">Status</div><div class="kpi-value" style="font-size:22px">${stageLabel[p.stage]}</div></div>
       </div>
 
@@ -6970,6 +7379,20 @@ function renderProjectTab(p, tasks, docs, subs, agentItems) {
           </div>
         </div>
       ` : ''}
+
+      <div class="card mb-20" style="border-color:rgba(0,245,255,.28);background:linear-gradient(135deg,rgba(0,245,255,.1),rgba(255,255,255,.025))">
+        <div class="card-head">
+          <div class="card-title">DaatView AI Summary</div>
+          <span class="ai-score">Opportunity Score: ${aiOpportunityScore(p)}</span>
+        </div>
+        <div class="card-body padded">
+          <div class="text-sm" style="line-height:1.75;color:var(--ink-dim)">
+            ${p.name} is in <strong style="color:var(--ink)">${stageLabel[p.stage]}</strong> with ${p.progress || 0}% execution progress.
+            DaatView flags <strong style="color:var(--accent)">${aiRiskCount(p.id)} live signal${aiRiskCount(p.id)===1?'':'s'}</strong> across alerts, stale workflow items, invoices, and compliance.
+            Recommended next move: ${p.stage === 'construction' ? 'tighten draw, lien waiver, and RFI automation before the next lender cycle.' : p.stage === 'completed' ? 'shift AI monitoring toward leasing velocity, renewals, and operating variance.' : 'compress diligence and approval blockers into one automated weekly decision packet.'}
+          </div>
+        </div>
+      </div>
 
       <!-- AT-A-GLANCE STATS -->
       <div class="grid-3 mb-20">
@@ -7457,7 +7880,7 @@ function openAllIdeasModal(projectId, tabId) {
 
 // ============================================================
 // AI COVERAGE CHECK — what might be missing on this project's stage?
-// In production this calls Anthropic's Claude API. Here it uses smart heuristics.
+// In production this calls Anthropic's DaatView AI engine. Here it uses smart heuristics.
 // ============================================================
 function runAICoverageCheck(projectId, tabId) {
   const p = projById(projectId);
@@ -7683,7 +8106,7 @@ function runAICoverageCheck(projectId, tabId) {
       <div style="margin-top:24px;padding:16px;background:var(--surface-2);border-radius:6px">
         <div class="text-xs mono" style="color:var(--accent);letter-spacing:0.15em;margin-bottom:10px">💬 ASK AI ABOUT THIS PROJECT</div>
         <div class="text-sm ink-dim" style="margin-bottom:10px;line-height:1.55">
-          Ask anything about this stage — the AI knows your project context, tasks, and KS Group's typical patterns.
+          Ask anything about this stage — the AI knows your project context, tasks, and DaatView's typical patterns.
         </div>
         <textarea id="ai_question" rows="3" placeholder="e.g., 'What's typical for closing on a Newark deal?' or 'What did we do for the variance on Sussex?'" style="width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);padding:10px;border-radius:4px;font-family:inherit;font-size:13px;resize:vertical;margin-bottom:10px"></textarea>
         <button class="btn btn-primary btn-sm" onclick="askAI('${projectId}','${tabId}')">Ask →</button>
@@ -7744,7 +8167,7 @@ function seedMissingFromTemplate(projectId, tabId) {
   showToast(`✓ Added ${missing.length} missing tasks from the playbook`);
 }
 
-// AI Q&A — heuristic in prototype, real Claude API in production
+// AI Q&A — heuristic in prototype, real DaatView AI engine in production
 function askAI(projectId, tabId) {
   const q = document.getElementById('ai_question').value.trim();
   if (!q) return;
@@ -7765,7 +8188,7 @@ function askAI(projectId, tabId) {
       const tmpl = STAGE_TEMPLATES[stageId];
       if (tmpl) {
         const total = tmpl.filter(t => !t.conditional).reduce((sum, t) => sum + (t.typicalDays || 14), 0);
-        answer = `For a typical ${stage?.short || 'project'} stage at KS Group, the standard tasks total roughly <strong>${total} days of cumulative effort</strong> (some run in parallel). On real deals like Pulaski Street, your DD took about 90 days. Newark deals typically run on the longer side because of TRC + planning board sequencing. Critical path items: zoning analysis, Phase 1 environmental, ALTA survey — start these day 1.`;
+        answer = `For a typical ${stage?.short || 'project'} stage at DaatView, the standard tasks total roughly <strong>${total} days of cumulative effort</strong> (some run in parallel). On real deals like Pulaski Street, your DD took about 90 days. Newark deals typically run on the longer side because of TRC + planning board sequencing. Critical path items: zoning analysis, Phase 1 environmental, ALTA survey — start these day 1.`;
       } else {
         answer = `Typical timing depends heavily on the stage. Tell me what specifically you're estimating and I can give a tighter number based on your prior projects.`;
       }
@@ -7773,7 +8196,7 @@ function askAI(projectId, tabId) {
       answer = `For Newark deals specifically:
         <ul style="margin:8px 0 0 18px;line-height:1.7">
           <li><strong>TRC review</strong> is required — Technical Review Committee includes civil, zoning, fire, police input</li>
-          <li><strong>PILOT (Long Term Tax Exemption)</strong> is highly available — almost all of KS Group's Newark deals use this. N.J.S.A. 40A:20</li>
+          <li><strong>PILOT (Long Term Tax Exemption)</strong> is highly available — almost all of DaatView's Newark deals use this. N.J.S.A. 40A:20</li>
           <li><strong>Planning Board</strong> meets monthly — plan for 2-3 hearings if you need variances</li>
           <li><strong>Sills</strong> is your go-to land use counsel here</li>
           <li><strong>Newark EDC</strong> is the entry point for redevelopment area / PILOT applications</li>
@@ -7781,7 +8204,7 @@ function askAI(projectId, tabId) {
         </ul>`;
     } else if (ql.includes('variance') || ql.includes('zoning')) {
       const sussexTasks = (DATA.workflowTasks || []).filter(t => t.project === 'sussex' && t.title.toLowerCase().includes('variance'));
-      answer = `For variance work, here's KS Group's pattern:
+      answer = `For variance work, here's DaatView's pattern:
         <ul style="margin:8px 0 0 18px;line-height:1.7">
           <li>Start with a <strong>zoning analysis & FAR calculation</strong> (Sills typically does this in 14 days)</li>
           <li>If variances needed, draft <strong>variance research & strategy memo</strong> — outlines what you need and likelihood</li>
@@ -7792,7 +8215,7 @@ function askAI(projectId, tabId) {
         </ul>
         ${sussexTasks.length ? `<div style="margin-top:8px;font-style:italic">On 50 Sussex you tracked variance items separately — pattern worth replicating.</div>` : ''}`;
     } else if (ql.includes('phase 1') || ql.includes('environmental')) {
-      answer = `Phase 1 ESA standard process at KS Group:
+      answer = `Phase 1 ESA standard process at DaatView:
         <ul style="margin:8px 0 0 18px;line-height:1.7">
           <li>Engage <strong>Partner ESI</strong> (or EBI/AEI as alternates)</li>
           <li>Typical cost: $2,400-3,500 per site</li>
@@ -7805,7 +8228,7 @@ function askAI(projectId, tabId) {
       const sussexTaskCount = (DATA.workflowTasks || []).filter(t => t.project === 'sussex').length;
       answer = `On 50 Sussex Avenue you have ${sussexTaskCount} tracked workflow tasks. It's a completed project (203 units, in operations now). Currently active there: Q2 investor report, property tax appeal review with tax appeal counsel. The DD/closing/design/construction stages are all marked complete. <button class="btn btn-sm" onclick="render('project-detail','sussex');closeModal()" style="margin-top:8px">Open 50 Sussex →</button>`;
     } else if (ql.includes('missing') || ql.includes('forgot')) {
-      answer = `Run the AI Coverage Check (top of this modal) — it specifically flags missing tasks for this stage. Common KS Group blind spots:
+      answer = `Run the AI Coverage Check (top of this modal) — it specifically flags missing tasks for this stage. Common DaatView blind spots:
         <ul style="margin:8px 0 0 18px;line-height:1.7">
           <li>Forgetting <strong>shade tree commission</strong> approval (Newark)</li>
           <li>Missing the <strong>45-day appeal period</strong> after variance approval — counts toward closing timeline</li>
@@ -7816,11 +8239,11 @@ function askAI(projectId, tabId) {
     } else {
       answer = `Good question. Based on this project (${p.name}, ${stage?.short || 'current stage'}, ${myTasks.length} tasks tracked):
         <ul style="margin:8px 0 0 18px;line-height:1.7">
-          <li>For specifics on real estate development process at KS Group, this AI can compare against your standard playbook (350+ tasks across 10 stages)</li>
+          <li>For specifics on real estate development process at DaatView, this AI can compare against your standard playbook (350+ tasks across 10 stages)</li>
           <li>For peer comparison, it cross-references your other projects to see what they did differently</li>
           <li>For staleness, it watches inactivity patterns</li>
         </ul>
-        <div style="margin-top:8px;font-style:italic">In production, this connects to Anthropic's Claude API with full project context for deeper Q&A. Try a more specific question like "what's the variance process in Newark" or "what did we do environmental on Pulaski".</div>`;
+        <div style="margin-top:8px;font-style:italic">In production, this connects to Anthropic's DaatView AI engine with full project context for deeper Q&A. Try a more specific question like "what's the variance process in Newark" or "what did we do environmental on Pulaski".</div>`;
     }
 
     answerEl.innerHTML = `
@@ -8726,7 +9149,7 @@ function deleteTaskComment(taskId, idx) {
 }
 
 function getNextStepsSuggestion(t, allTasks) {
-  // Simple heuristic — later this would call Claude API
+  // Simple heuristic — later this would call DaatView AI engine
   const stage = STAGE_DEFINITIONS.find(s => s.id === t.stage);
   if (t.status === 'in_progress') {
     return `Currently in progress. Consider: setting a reminder for ${t.typicalDays || 14} days from start. Once done, move to the next ${stage?.short || ''} task.`;
@@ -8809,7 +9232,7 @@ ${t.dueDate ? `Our target completion is ${fmtDate(t.dueDate)} — wanted to make
 
 Thanks,
 ${DATA.user?.name?.split(' ')[0] || 'Team'}
-KS Group`;
+DaatView`;
 
   showModal(`
     <div class="modal-head">
@@ -11233,14 +11656,14 @@ function simulateEmailArrival() {
           <div class="agent-step-icon">⏳</div>
           <div>
             <div class="agent-step-title">Reading email content</div>
-            <div class="text-xs ink-dim">Claude analyzes subject, body, and sender</div>
+            <div class="text-xs ink-dim">DaatView analyzes subject, body, and sender</div>
           </div>
         </div>
         <div class="agent-step" data-step="2">
           <div class="agent-step-icon">⏳</div>
           <div>
             <div class="agent-step-title">Matching to project</div>
-            <div class="text-xs ink-dim">Identifying which KS Group project this concerns</div>
+            <div class="text-xs ink-dim">Identifying which DaatView project this concerns</div>
           </div>
         </div>
         <div class="agent-step" data-step="3">
@@ -11892,7 +12315,7 @@ function renderPlaybook() {
       <div class="page-head">
         <div>
           <div class="page-title">Development <em>Playbook</em></div>
-          <div class="page-sub">How KS Group runs every deal — from sourcing through disposition. Standard process for the team.</div>
+          <div class="page-sub">How DaatView runs every deal — from sourcing through disposition. Standard process for the team.</div>
         </div>
       </div>
 
@@ -11901,7 +12324,7 @@ function renderPlaybook() {
         <div class="card-body padded" style="padding:24px">
           <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin-bottom:8px">Welcome to the team</div>
           <div class="text-sm ink-dim" style="line-height:1.7;margin-bottom:14px">
-            This is how we run real estate development at KS Group. Every project — whether it's a 19-unit townhouse like River Pointe or a 2,638-unit master plan like Astoria Cove — follows the same 10-stage process. Each stage has a standard checklist of tasks. When you join a project, open its <strong style="color:var(--ink)">Workflow tab</strong> to see exactly where it stands and what needs doing.
+            This is how we run real estate development at DaatView. Every project — whether it's a 19-unit townhouse like River Pointe or a 2,638-unit master plan like Astoria Cove — follows the same 10-stage process. Each stage has a standard checklist of tasks. When you join a project, open its <strong style="color:var(--ink)">Workflow tab</strong> to see exactly where it stands and what needs doing.
           </div>
           <div class="row gap-12" style="flex-wrap:wrap">
             <div class="playbook-stat">
@@ -12158,7 +12581,7 @@ function requestCoiRenewal(coiId) {
       const bodyEl = document.getElementById('fu_body');
       if (aboutEl) aboutEl.value = 'COI renewal — current cert expires ' + fmtDate(c.expiresDate);
       if (subjectEl) subjectEl.value = 'COI Renewal Request — ' + c.subName;
-      if (bodyEl) bodyEl.value = `Hi,\n\nYour current Certificate of Insurance (Policy ${c.policyNum}) expires on ${fmtDate(c.expiresDate)}. Please send us an updated COI as soon as possible. We need it on file before any further work.\n\nThanks,\nKS Group`;
+      if (bodyEl) bodyEl.value = `Hi,\n\nYour current Certificate of Insurance (Policy ${c.policyNum}) expires on ${fmtDate(c.expiresDate)}. Please send us an updated COI as soon as possible. We need it on file before any further work.\n\nThanks,\nDaatView`;
     }, 100);
   }
 }
@@ -12169,7 +12592,7 @@ function requestCoiRenewal(coiId) {
 function openHelp() {
   showModal(`
     <div class="modal-head">
-      <div class="modal-title">About KS Group Platform</div>
+      <div class="modal-title">About DaatView Platform</div>
       <button class="x-btn" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body">
@@ -12178,16 +12601,16 @@ function openHelp() {
           <div class="brand-mark" style="width:32px;height:32px">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z" fill="#3FAA52"/><path d="M38 60 L62 60 L62 90 L52 90 L52 78 L46 84 L46 90 L38 90 Z M52 60 L52 72 L46 78 L46 60 Z" fill="#1F7A32"/><path d="M62 60 L62 90 L58 90 L58 60 Z" fill="#5BC36A" opacity="0.6"/></svg>
           </div>
-          <span class="brand" style="font-size:22px">KS Group</span>
+          <span class="brand" style="font-size:22px">DaatView</span>
         </div>
-        <div class="brand-sub" style="font-size:11px;margin-bottom:0">Project Operations Platform</div>
+        <div class="brand-sub" style="font-size:11px;margin-bottom:0">AI Operating System Platform</div>
         <div class="text-xs ink-faint mono" style="margin-top:8px">v1.0 · build ${DATA_VERSION}</div>
       </div>
 
       <div class="help-section">
         <div class="help-label">What this is</div>
         <div class="text-sm" style="line-height:1.6">
-          A complete project operations platform built specifically for KS Group. Manages your 13 active and completed properties, tracks payments, coordinates your team, monitors compliance, and provides asset management for stabilized properties.
+          A complete project operations platform built specifically for DaatView. Manages your 13 active and completed properties, tracks payments, coordinates your team, monitors compliance, and provides asset management for stabilized properties.
         </div>
       </div>
 
@@ -12201,7 +12624,7 @@ function openHelp() {
       <div class="help-section">
         <div class="help-label">What works in this prototype</div>
         <ul class="help-list">
-          <li>All 13 KS Group projects with photos and details</li>
+          <li>All 13 DaatView projects with photos and details</li>
           <li>Full payment tracking — Pulaski Street has 17 real line items from your Excel</li>
           <li>Edit budgets per project (soft / hard / contingency)</li>
           <li>Workstreams + action items (asset-management workflow)</li>
@@ -12251,7 +12674,7 @@ function openHelp() {
 
 function resetAllData() {
   if (!confirm('Reset all data?\n\nThis clears every change you\'ve made and resets the demo to its original state. Cannot be undone.')) return;
-  localStorage.removeItem('ksgroup_data');
+  localStorage.removeItem('daatview_data');
   location.reload();
 }
 
@@ -12866,7 +13289,7 @@ function bindSubs() {
 }
 
 // ============================================================
-// TEAM — internal KS Group team only. Equal access for all.
+// TEAM — internal DaatView team only. Equal access for all.
 // Subs are NOT here — they only receive follow-up emails.
 // ============================================================
 function teamUserName(uid) {
@@ -12973,7 +13396,7 @@ function openInviteModal() {
     </div>
     <div class="modal-body">
       <div class="field"><label>Full Name</label><input id="inv_name" placeholder="e.g., Sarah Cohen"></div>
-      <div class="field"><label>Email</label><input id="inv_email" placeholder="sarah@ksgroup.biz" type="email"></div>
+      <div class="field"><label>Email</label><input id="inv_email" placeholder="sarah@daatview.ai" type="email"></div>
       <div class="field">
         <label>Temporary Password</label>
         <input id="inv_pass" value="${tempPass}">
@@ -13331,7 +13754,7 @@ Hope you're doing well. Quick check-in on ${proj.name} — ${about.toLowerCase()
 Whenever you have a minute, can you let me know where things stand? Happy to jump on a quick call if it's easier.
 
 Thanks,
-KS Group Team`;
+DaatView Team`;
 
   document.getElementById('fu_body').value = draft;
   if (!document.getElementById('fu_subject').value.trim()) {
@@ -13403,7 +13826,7 @@ function renderIntegrations() {
             <strong>How integrations work</strong>
           </div>
           <div class="text-sm ink-dim" style="line-height:1.6">
-            When you connect a service, KS Group platform reads new content (files, emails, calendar events) on a schedule, runs it through Claude AI to extract project context and action items, and surfaces relevant items in your Agent Inbox and Document search. <strong style="color:var(--ink)">Connections use OAuth — your password is never shared with this platform.</strong> You can disconnect at any time, which immediately revokes access.
+            When you connect a service, DaatView platform reads new content (files, emails, calendar events) on a schedule, runs it through DaatView AI to extract project context and action items, and surfaces relevant items in your Agent Inbox and Document search. <strong style="color:var(--ink)">Connections use OAuth — your password is never shared with this platform.</strong> You can disconnect at any time, which immediately revokes access.
           </div>
         </div>
       </div>
@@ -13417,9 +13840,9 @@ function renderIntegrations() {
         <div class="card-body padded">
           <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:8px">
             ${[
-              { n:1, t:'Authorize', d:'You click Connect → Dropbox asks if KS Group can read your files → you say yes.' },
+              { n:1, t:'Authorize', d:'You click Connect → Dropbox asks if DaatView can read your files → you say yes.' },
               { n:2, t:'Pick folders', d:'Tell us which folders to sync (e.g., /Astoria, /Summit, /Mulberry). Don\'t need to share everything.' },
-              { n:3, t:'AI processes', d:'Each new file is read by Claude — extracts summary, tags, project match, dollar amounts, dates.' },
+              { n:3, t:'AI processes', d:'Each new file is read by DaatView AI — extracts summary, tags, project match, dollar amounts, dates.' },
               { n:4, t:'Surfaces actionable items', d:'Important items (invoices needing approval, RFIs, lien waivers) auto-appear in Agent Inbox.' },
             ].map(s => `
               <div style="padding:18px 16px;border-right:1px solid var(--line-soft)">
@@ -13550,7 +13973,7 @@ function openConnectModal(id) {
         <div style="display:inline-flex;align-items:center;gap:14px;padding:14px 22px;background:var(--surface-2);border-radius:8px;border:1px solid var(--line)">
           <div class="brand-logo">
             <div class="brand-mark" style="width:24px;height:24px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z" fill="#3FAA52"/><path d="M38 60 L62 60 L62 90 L52 90 L52 78 L46 84 L46 90 L38 90 Z M52 60 L52 72 L46 78 L46 60 Z" fill="#1F7A32"/><path d="M62 60 L62 90 L58 90 L58 60 Z" fill="#5BC36A" opacity="0.6"/></svg></div>
-            <span class="brand" style="font-size:16px">KS Group</span>
+            <span class="brand" style="font-size:16px">DaatView</span>
           </div>
           <div style="color:var(--ink-faint);font-size:18px">⇆</div>
           <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:${i.brandColor}">${i.name}</div>
@@ -13558,7 +13981,7 @@ function openConnectModal(id) {
       </div>
 
       <div class="text-sm" style="margin-bottom:16px;line-height:1.6">
-        Clicking <strong>Authorize</strong> below will (in the live version) redirect you to <strong>${i.name}</strong>'s sign-in page. You'll log in there — <strong>your password is never seen by KS Group platform</strong>. ${i.name} will ask you to grant these permissions:
+        Clicking <strong>Authorize</strong> below will (in the live version) redirect you to <strong>${i.name}</strong>'s sign-in page. You'll log in there — <strong>your password is never seen by DaatView platform</strong>. ${i.name} will ask you to grant these permissions:
       </div>
 
       <div style="background:var(--surface-2);border:1px solid var(--line);border-radius:4px;padding:14px 18px;margin-bottom:16px">
@@ -13592,7 +14015,7 @@ function simulateConnect(id) {
   i.connected = true;
   i.lastSync = 'just now';
   i.filesIndexed = id === 'dropbox' ? 247 : id === 'gmail' ? 1842 : id === 'gdrive' ? 89 : id === 'gcal' ? 34 : id === 'quickbooks' ? 412 : 67;
-  i.folder = id === 'dropbox' ? '/KS Group Shared' : id === 'gdrive' ? 'Shared with KS Group' : null;
+  i.folder = id === 'dropbox' ? '/DaatView Shared' : id === 'gdrive' ? 'Shared with DaatView' : null;
   save();
   closeModal();
   render('integrations');
@@ -13613,7 +14036,7 @@ function openAppFolioConnectModal() {
         <div style="display:inline-flex;align-items:center;gap:14px;padding:14px 22px;background:var(--surface-2);border-radius:8px;border:1px solid var(--line)">
           <div class="brand-logo">
             <div class="brand-mark" style="width:24px;height:24px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z" fill="#3FAA52"/><path d="M38 60 L62 60 L62 90 L52 90 L52 78 L46 84 L46 90 L38 90 Z M52 60 L52 72 L46 78 L46 60 Z" fill="#1F7A32"/><path d="M62 60 L62 90 L58 90 L58 60 Z" fill="#5BC36A" opacity="0.6"/></svg></div>
-            <span class="brand" style="font-size:16px">KS Group</span>
+            <span class="brand" style="font-size:16px">DaatView</span>
           </div>
           <div style="color:var(--ink-faint);font-size:18px">⇆</div>
           <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:#3FA9F5">AppFolio</div>
@@ -13875,7 +14298,7 @@ function openQuickBooksConnectModal() {
         <div style="display:inline-flex;align-items:center;gap:14px;padding:14px 22px;background:var(--surface-2);border-radius:8px;border:1px solid var(--line)">
           <div class="brand-logo">
             <div class="brand-mark" style="width:24px;height:24px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L88 38 L88 90 L62 90 L62 60 L38 60 L38 90 L12 90 L12 38 Z" fill="#3FAA52"/><path d="M38 60 L62 60 L62 90 L52 90 L52 78 L46 84 L46 90 L38 90 Z M52 60 L52 72 L46 78 L46 60 Z" fill="#1F7A32"/><path d="M62 60 L62 90 L58 90 L58 60 Z" fill="#5BC36A" opacity="0.6"/></svg></div>
-            <span class="brand" style="font-size:16px">KS Group</span>
+            <span class="brand" style="font-size:16px">DaatView</span>
           </div>
           <div style="color:var(--ink-faint);font-size:18px">⇆</div>
           <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:#2ca01c">QuickBooks</div>
@@ -13934,9 +14357,9 @@ function qbStartOAuth() {
       </div>
       <div style="display:flex;flex-direction:column;gap:8px">
         ${[
-          { id:'qb1', name:'KS Group LLC',           ein:'82-XXXX001', subs:'13 sub-customers' },
-          { id:'qb2', name:'KS Group Holdings LLC',  ein:'82-XXXX045', subs:'4 sub-customers' },
-          { id:'qb3', name:'KS Group Management LLC',ein:'82-XXXX102', subs:'2 sub-customers' },
+          { id:'qb1', name:'DaatView LLC',           ein:'82-XXXX001', subs:'13 sub-customers' },
+          { id:'qb2', name:'DaatView Holdings LLC',  ein:'82-XXXX045', subs:'4 sub-customers' },
+          { id:'qb3', name:'DaatView Management LLC',ein:'82-XXXX102', subs:'2 sub-customers' },
         ].map(c => `
           <button onclick="qbConnectCompany('${c.id}','${c.name}')" class="stage-pick">
             <div>
@@ -14098,7 +14521,7 @@ function openQbSettings() {
       <div class="qb-setting">
         <div style="flex:1">
           <div style="font-weight:500;margin-bottom:3px">AI-suggested GL coding</div>
-          <div class="text-xs ink-dim">When new invoices arrive, Claude suggests the right expense account and class based on vendor + project. Zevi reviews before posting.</div>
+          <div class="text-xs ink-dim">When new invoices arrive, DaatView AI suggests the right expense account and class based on vendor + project. Zevi reviews before posting.</div>
         </div>
         <label class="qb-toggle">
           <input type="checkbox" checked id="qbAiCoding">
@@ -14459,7 +14882,7 @@ function renderDocs() {
       <div class="ai-search-hero">
         <div class="ai-search-label">
           <div class="ai-pulse"></div>
-          AI Document Search · Powered by Claude
+          AI Document Search · Powered by DaatView AI
         </div>
         <div class="ai-search-box">
           <input type="text" class="ai-search-input" id="aiSearch"
@@ -14526,7 +14949,7 @@ function ingestFiles(files) {
       </div>
       <div class="text-xs ink-dim" style="margin-top:14px;line-height:1.5">
         AI is reading each file, detecting which project it belongs to, and filing it in the right folder.
-        ${IS_DEMO ? '<br><strong style="color:var(--amber)">Demo:</strong> in production, files go through Claude API for real analysis. Here we simulate the AI decisions based on filename heuristics.' : ''}
+        ${IS_DEMO ? '<br><strong style="color:var(--amber)">Demo:</strong> in production, files go through DaatView AI engine for real analysis. Here we simulate the AI decisions based on filename heuristics.' : ''}
       </div>
     </div>
   `);
@@ -14790,7 +15213,7 @@ function openFolderView() {
 // ============================================================
 // SEMANTIC SEARCH ENGINE (front-end demo)
 // In production, this is a Supabase pgvector query against
-// embeddings generated by Claude/OpenAI on document upload.
+// embeddings generated by DaatView AI on document upload.
 // ============================================================
 function runAiSearch() {
   const q = document.getElementById('aiSearch').value.trim().toLowerCase();
@@ -14900,7 +15323,7 @@ function runAiSearch() {
 }
 
 // Tiny "AI answer" synthesizer — pattern-matches common questions.
-// In production this is a Claude API call: "Answer the user's question
+// In production this is a DaatView AI engine call: "Answer the user's question
 // using only these document snippets" with the top results as context.
 function synthesizeAnswer(query, results) {
   if (!results.length) return null;
@@ -14973,7 +15396,7 @@ function openNewProjectModal() {
       <div style="margin-top:18px;padding:14px 16px;background:rgba(201,169,106,.08);border:1px solid rgba(201,169,106,.3);border-radius:4px">
         <div class="text-xs mono" style="color:var(--accent);letter-spacing:0.15em;margin-bottom:8px">📋 STANDARD PLAYBOOK (APPLIED AUTOMATICALLY)</div>
         <div class="text-sm" style="line-height:1.55;margin-bottom:12px">
-          This project will get the full KS Group development playbook automatically — <strong style="color:var(--ink)">all 350+ standard tasks across all 10 stages</strong>. Tasks before the current stage will be marked done. Your team will have the same structured workflow on this project as on every other.
+          This project will get the full DaatView development playbook automatically — <strong style="color:var(--ink)">all 350+ standard tasks across all 10 stages</strong>. Tasks before the current stage will be marked done. Your team will have the same structured workflow on this project as on every other.
         </div>
         <label class="row gap-12" style="margin-bottom:0;cursor:pointer;align-items:center">
           <input type="checkbox" id="np_seedAll" checked style="accent-color:var(--accent);width:16px;height:16px">
@@ -15284,6 +15707,87 @@ function showToast(msg) {
   document.body.appendChild(t);
   setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity .3s'; }, 2200);
   setTimeout(() => t.remove(), 2700);
+}
+
+function updateDaatAIMetrics() {
+  const risks = document.getElementById('aiMetricRisk');
+  const opp = document.getElementById('aiMetricOpp');
+  const flow = document.getElementById('aiMetricFlow');
+  if (!risks || !opp || !flow || !DATA.projects) return;
+  risks.textContent = aiRiskCount();
+  opp.textContent = Math.max(...DATA.projects.map(aiOpportunityScore));
+  const workflowOpen = (DATA.workflowTasks || []).filter(t => t.status !== 'done').length;
+  flow.textContent = Math.max(8, Math.min(99, Math.round(workflowOpen / 18)));
+}
+
+function openDaatAI(prompt) {
+  const panel = document.getElementById('daatAiAssistant');
+  if (!panel) return;
+  panel.classList.remove('collapsed');
+  updateDaatAIMetrics();
+  const input = document.getElementById('daatAiInput');
+  if (input) {
+    if (prompt) input.value = prompt;
+    input.focus();
+  }
+}
+
+function toggleDaatAI() {
+  const panel = document.getElementById('daatAiAssistant');
+  if (!panel) return;
+  panel.classList.toggle('collapsed');
+  const btn = panel.querySelector('.ai-panel-toggle');
+  if (btn) btn.textContent = panel.classList.contains('collapsed') ? '+' : '–';
+}
+
+function appendDaatMessage(text, who = 'bot') {
+  const box = document.getElementById('daatAiMessages');
+  if (!box) return;
+  const msg = document.createElement('div');
+  msg.className = `ai-message ${who}`;
+  msg.innerHTML = text;
+  box.appendChild(msg);
+  box.scrollTop = box.scrollHeight;
+}
+
+function askDaatAI(prompt) {
+  openDaatAI(prompt);
+  const input = document.getElementById('daatAiInput');
+  if (input) input.value = prompt;
+  submitDaatAI();
+}
+
+function handleDaatAIKey(event) {
+  if (event.key === 'Enter') submitDaatAI();
+}
+
+function submitDaatAI() {
+  const input = document.getElementById('daatAiInput');
+  if (!input) return;
+  const q = input.value.trim();
+  if (!q) return;
+  appendDaatMessage(escapeHTML(q), 'user');
+  input.value = '';
+  setTimeout(() => appendDaatMessage(generateDaatAIResponse(q)), 220);
+}
+
+function generateDaatAIResponse(query) {
+  const q = query.toLowerCase();
+  const topProjects = DATA.projects.slice().sort((a,b) => aiOpportunityScore(b) - aiOpportunityScore(a)).slice(0,3);
+  const risky = DATA.projects.slice().sort((a,b) => aiRiskCount(b.id) - aiRiskCount(a.id)).slice(0,3);
+  if (q.includes('risk') || q.includes('attention') || q.includes('today')) {
+    return `Highest attention items: <strong>${risky[0]?.name}</strong> has ${aiRiskCount(risky[0]?.id)} live signals, followed by ${risky.slice(1).map(p => `<strong>${p.name}</strong> (${aiRiskCount(p.id)})`).join(' and ')}. I would review stale workflow tasks, pending invoices, and expiring COIs first.`;
+  }
+  if (q.includes('opportun')) {
+    return `Top opportunity scores: ${topProjects.map(p => `<strong>${p.name}</strong> ${aiOpportunityScore(p)}/100`).join(', ')}. The model favors assets with scale, forward stage movement, and manageable open risk.`;
+  }
+  if (q.includes('automat') || q.includes('workflow')) {
+    return `Recommended automations: auto-route uploaded diligence files, draft vendor follow-ups for overdue workflow tasks, generate weekly lender draw packets, and trigger COI renewal emails 30 days before expiration.`;
+  }
+  const current = currentProjectId ? projById(currentProjectId) : topProjects[0];
+  return current
+    ? `<strong>${current.name}</strong> is ${stageLabel[current.stage]} with an AI Opportunity Score of ${aiOpportunityScore(current)}/100 and ${aiRiskCount(current.id)} risk signals. Recommended next action: ${current.stage === 'construction' ? 'resolve construction blockers before the next draw cycle.' : 'compress open diligence and approval tasks into a decision memo.'}`
+    : `DaatView is ready. Ask about portfolio risk, opportunity scores, workflow automation, or a specific asset.`;
 }
 
 function openNewTaskModal() {
